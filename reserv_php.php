@@ -1,15 +1,13 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Récupération des données du formulaire
+function check(){
+  $con= mysqli_connect("localhost","root","","projet_php");
   $nom = $_POST["nom"];
+  $prenom = $_POST["prenom"];
   $email = $_POST["email"];
-  $password = $_POST["password"];
-
-  // Validation ou traitement supplémentaire si nécessaire
-
-  // Exemple : Affichage des données
-  echo "Nom: " . $nom . "<br>";
-  echo "Adresse e-mail: " . $email . "<br>";
-  echo "Mot de passe: " . $password;
+  $cin = $_POST["cin"];
+  $ville = $_POST["ville"];
+  $date_res = $_POST["date_res"];
+  $sql = "INSERT INTO reserv VALUES ($nom,$prenom,$email,$cin,$ville,$date_res)";
+  $con->query($sql);
 }
 ?>
